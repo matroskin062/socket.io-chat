@@ -11,3 +11,44 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.my-message {
+  background-color: #218aff;
+  color: white;
+}
+
+.my-message:before {
+  content: '';
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid #218aff;
+  border-right: 10px solid transparent;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid #218aff;
+  right: -20px;
+  top: 60px;
+}
+
+.card {
+  border: none;
+}
+
+.message {
+  background-color: #d8d8d8;
+  color: black;
+  position: relative;
+}
+
+.message::before {
+  content: '';
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid #d8d8d8;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid #d8d8d8;
+  left: -20px;
+  top: 60px;
+}

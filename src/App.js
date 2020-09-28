@@ -1,24 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Login from './components/Login/Login';
+import { Redirect, Route } from 'react-router-dom';
+import Chat from './components/Chat/Chat';
 
 function App() {
+  const [name, setName] = React.useState('');
+  const [logged, setLogged] = React.useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      {!logged && <Redirect to='/' />}
+      <Route path='/chat' render={() => <Chat name={name} />} />
+      <Route
+        path='/'
+        exact
+        render={() => (
+          <Login
+            setName={setName}
+            name={name}
+            logged={logged}
+            setLogged={setLogged}
+          />
+        )}
+      />
     </div>
   );
 }
